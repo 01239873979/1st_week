@@ -1,0 +1,37 @@
+# Custom shell init isolation
+if ( ! -t 0 ) then
+    exit
+endif
+
+umask 002
+set history=200
+set savehist=200
+unset autologout
+set prompt = "`whoami`@`hostname` >"
+alias cd 'cd \!*; set prompt = "`whoami`@`hostname`: $cwd >"'
+source ~/.aliases
+set     noclobber
+set     fignore = (.dvi .o)
+set     nobeep
+set     ignoreeof notify # don't exit on ^D
+set     notify
+setenv KEEP_RUN_DIR 1
+setenv P4CONFIG .p4config
+#setenv PIPE_P4_DEPOT //pipe
+#setenv PIPE_P4_DEPOT //pipe_ts12
+#settdk default
+set nobeep
+setenv TARGET_ARCH linux64
+set path = ( $path . )
+
+setenv QUERYCCS_ENABLE 1
+setenv P4CONFIG ".p4config"
+setenv P4PORT p4p-`/usr/local/bin/siteid`:1900
+setenv PIPE_REV_MODE p4
+setenv PIPE_P4_PORT p4p-`/usr/local/bin/siteid`:1900
+#setenv PIPE_P4_DEPOT //pipe_ts12
+setenv CHAR_DEBUG "-keep_raw_del_files -skip_tcl_equation_info -skip_validate_options_check -keep_run_dir -skip_hz_verification -no_spice_expansion -skip_resubmit_job "
+setenv ENABLE_RECHAR_COMPATIBILITY 1
+
+module load primesim
+module load primewave

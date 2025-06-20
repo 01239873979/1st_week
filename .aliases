@@ -1,0 +1,236 @@
+## GENERAL UNIX ALIASES
+#alias clear 'printf "\e[H\e[2J"'
+alias   h	'history'
+alias   cd      'cd \!*; ls; pwd'
+alias   ..  'cd ..'
+alias   ... 'cd ../../'
+alias   .3  'cd ../../../'
+alias   .4  'cd ../../../../'
+alias   .5  'cd ../../../../../'
+alias   c-	'cd -'
+#__Unix aliases
+alias	uge      'source /UGE/uge/gip/common/settings.csh'
+alias	vd	'/bin/vimdiff'
+alias	vv	'/usr/bin/vim -O ' 
+alias	vh	'/usr/bin/vim -o ' 
+alias	td	'tkdiff'
+alias   su      'su -'
+alias	vf	'/usr/bin/vim '
+alias	v	'/usr/bin/vim '
+alias   h       'history'
+alias	hg	'history | grep'
+alias   cl      'clear'
+alias	df      'df -ha ./'
+alias   cp      '/bin/cp -i'
+alias   mv      'mv -i'
+alias   ul      'unlink'
+alias   go      'gnome-open'
+alias   gt      'gnome-terminal &'
+alias	rm	'rm -i'
+alias	rf	'rm -rf'
+alias   l       'ls -F --color=auto;echo;pwd'
+alias   lm      'clear;ls -aF --color|more ;echo;pwd'
+alias   ll      'ls -al --color; echo ; pwd'
+alias   lst     'clear;ls --color=auto -X -lhtr; pwd'
+alias   lsl     'clear;ls -og --color=auto -X -lhtr; pwd'
+alias   lsg     'ls --color=auto | grep '
+alias	lll		'ls -1; pwd'
+alias	lh		'ls -h1'
+alias	lc		'ls | wc -l'
+alias	so		'soffice'
+alias	ff		'firefox'
+alias	xxdiff	'/depotbld/RHEL8.0/xxdiff-5.1/bin/xxdiff'
+#
+#alias	cshrc	'vi /u/trapham/.cshrc.trapham'
+#alias	pwd	'pwd ; ls -l'
+alias   ta	'echo "#tar <file.tar.gz> <folder/file>"; echo "tar -zcvf"' #tar <file.tar.gz> <folder/file>'
+alias   uta	'tar -zxvf' #tar <file.tar> in current dir or tar <file.tar> -C <dir>
+alias	findf	'find ./ -type f -iname'
+alias	findd	'find ./ -type d -iname'
+alias	findp	'find ./ -path '
+alias	findlp	'find -L ./ -path '
+alias	val	'vi ~/.aliases'
+alias	lda	'source ~/.aliases'
+alias	rsyn	'echo "rsync -avz <file> <destination_machine>:<dir>"; echo "rsync -avzh trapham@sgvnc02.uswest3.azure.synopsys.com:/"'
+alias	p	'python3'
+#
+alias   xt      'qsh -P iheavy -display $CITRIX_REMOTE_DISPLAY'
+alias   xtl     'qsh -P ilight -display $CITRIX_REMOTE_DISPLAY'
+alias   xtw     'qsh -P iwork  -display $CITRIX_REMOTE_DISPLAY'
+alias   gt      'gnome-terminal &'
+alias   disk    'rm -rf diskusage; touch diskusage; date >> diskusage; du -ckhs -- * .[^.]* | sort -hr >> diskusage; cat diskusage'
+alias	chdisk	'csh /remote/us01home50/trapham/Documents/script/00_disk_system/check_disk.csh '
+alias 	wave 	'module unload cx; module load cx/2023.12-SP2; wv &'
+alias	sigma	"/depot/R-3.1.1/bin/Rscript -e 'qnorm("${1}")'"
+alias	etime	'tail -2 ~/time.log | sed -e '\''s/:/ /g'\'' | awk '\''{print $3" "$4" "$5}'\'' | awk -f ~/abs.awk | tail -1 | awk '\''{print $1"h"$2"m"$3"s"}'\'''
+alias	head5	'head -n 5'
+alias	head1	'head -n 1'
+alias	tail5	'tail -n 5'
+alias	tail1	'tail -n 1'
+alias	reload_H 'module unload hspice; module load hspice/2022.06'
+#
+
+#__Jobs
+alias	ttjob	'bjobs -o "jobid job_name sub_cwd stat mem:-9:G" -u trapham | awk -f ~/Documents/color.awk -e '\''{$1 = MAGENTA($1); $3 = RED($3); print}'\'''
+alias	qjob	'bjobs -o "jobid job_name sub_cwd stat mem:-9:G" -u trapham | grep `pwd` | awk -f ~/Documents/color.awk -e '\''{$1 = MAGENTA($1); $3 = RED($3); print}'\'''
+#alias	qjobw	'bjobs -o "jobid job_name sub_cwd stat" -u trapham | grep `pwd` | awk -f ~/Documents/color.awk -e '\''{$1 = MAGENTA($1); $3 = RED($3); print}'\'' | wc -l'
+alias	qjobk	'bjobs -o "jobid job_name sub_cwd stat" -u trapham | grep `pwd` | awk '\''{print $1}'\'' | tr '\''\n'\'' '\'' '\'' '
+alias	rjob	'bjobs -o "jobid job_name exec_cwd" -u trapham | grep `pwd` | awk -f ~/Documents/color.awk -e '\''{$1 = MAGENTA($1); $3 = RED($3); print}'\'''
+alias	wjob	'echo -n "Run: ";rjob | wc -l; echo -n "Total: " ; qjob | wc -l'
+#alias	ejob	'fstatprs -email trapham@synopsys.com'
+alias	njob	'bjobs -o "jobid job_name sub_cwd stat" -u trapham -J'
+alias	_njob	'bjobs -J \!:1 -o "jobid job_name sub_cwd stat" -u trapham'
+alias	why_pending	'bjobs -o "jobid sub_cwd pend_reason"'
+#alias	kjob	'bjobs -o "jobid job_name sub_cwd stat" -u trapham | grep `pwd`; bjobs -o "jobid " -u trapham | grep `pwd` | awk "{print $1}" | tr "\n" " " '
+alias	qjobs	'/remote/us01home50/trapham/Documents/script/00_disk_system/qjobs/bin/qjobs'
+
+#__SCRIPT
+alias	rst		'source /u/trapham/Documents/script/reset.csh'
+#alias	delnfs	'source /u/trapham/Documents/script/delete_nfs.csh'
+alias	chkstt	'source /u/trapham/Documents/script/script_check_running.csh'
+alias	chkxa	'source /u/trapham/Documents/script/script_xa_check.csh'
+alias	ul_		'source ~/Documents/script/script_unlink.csh'
+#alias	chkpp	'konsole -e ~/Documents/script/check_pipe.csh'
+alias	chkjb	'konsole -e ~/Documents/script/check_total_jobs.csh'
+alias	chkcc	'source /u/trapham/Documents/script/script_check_comp_char.csh'
+alias	mkln	'~/Documents/script/script_link_copy.csh'
+alias	mjob	'/u/trapham/Documents/script/check_spice_jobs_meas_qty.csh'
+alias	gethier	'~/Documents/script/Perl/getMeasHier.pl -sp *[D].sp -mt *[D].meas -meas'
+alias	gH		'~/Documents/script/gethier.csh'
+alias	ulg		'~/Documents/script/script_unlink_group.csh'
+alias	unlist	'csh ~/Documents/script/unlink_list.csh'
+alias	qwd		'~/Documents/script/qstat_work_dir.csh'
+alias	qtpg	'~/Documents/script/qstat_status.sh'
+alias	ac		'~/Documents/script/script_check_meas_file.csh'
+alias	vt	'~/Documents/script/view_mt_file.pl'
+alias	jobview	'~/Documents/script/jobview'
+alias	tmux 	'/depotbld/RHEL6.0/tmux/tmux-3.3a/bin/tmux'
+alias	epy		'/global/apps/embedit_2023.03-SP1-T-20230426/bin/python'
+alias	trace	'~/Documents/script/trace_measurement.csh'
+alias	sql2txt	'~/Documents/script/makeAsciiCPJ.csh'
+alias	txt2sql '~/Documents/script/makeAsciiCPJ_s.csh'
+alias	smail	'csh /remote/us01home50/trapham/Documents/script/mail_send.csh '
+alias	tuning	'csh /remote/us01home50/trapham/Documents/script/wm_setting_sp_file.csh'
+alias	extract	'bash ~/.extract.sh'
+alias   gen_setting 'bash ~/Documents/script/01_caf_char_cpj/cmd_gen_setting.sh'
+
+
+#__Dump waveform
+alias	logonAzu	'ssh sgvnc02.uswest3.azure.synopsys.com'
+alias	editsp	'source /u/trapham/Documents/script/edit_sp_file.csh'
+alias	dwave	'source /u/trapham/Documents/script/dump_wave.csh'
+alias	pwave	'perl /u/trapham/Documents/script/pp_margin_netlist.pl *D.sp; xa sim.sp -v_2022.06 -o waveform -mt 4 >! waveform_log &'
+
+#__Working directory
+alias	caf		'cd /remote/us01sgnfs00359/ts03nxg4/hd1prf/work/trapham/CAF'
+alias	waymo	'cd /slowfs/us01dwt2p751/ts05p0g4/work/trapham'
+
+#__Alias for printing
+#alias mpr  'mp -o -s "\!*" <\!* | lpr -P sds106:hp -h'
+#alias prt  'mp -o -s "\!*" <\!* | lpr -P hp8000b -h'
+#alias prtl 'mp -l -o -s "\!*" <\!* | lpr -P hp8000b -h'
+
+#__PIPE
+alias	pipe359	'cd /remote/us01sgnfs00359/ts03nxg4/hd1prf/work/trapham/pipe/complib/ts03n_xg4_crl_a02/ts03nxg41p11sacrl256sa/'
+alias	pipe161 'cd /remote/us01sgnfs00161/ts12n0zs/ts12n0zs1p11sadrl144sa/work/trapham/pipe/complib/ts12n_0zs_drl_a03/ts12n0zs1p11sadrl144sa/'
+alias	pipehd161	'cd /remote/us01sgnfs00161/ts12n0zs/ts12n0zs1p11sadcl01msa/build/pipe/complib/ts12n_0zs_dcl_a03/ts12n0zs1p11sadcl01msa/'
+alias	pipestt	'ps -C pipe >/dev/null && echo "Running" || echo "Done"'
+alias	xastt	'ps -C xa >/dev/null && echo "Running" || echo "Done"'
+#alias	%xa	'grep 'remaining' ./vnc_logs/*/xa.o* | awk 'END {print $2, $7, $8, $9, $10, $11}' | uniq'
+alias	inp	'~/Documents/script/script_setenv_piperoot.csh'
+
+#
+#__TDK
+#alias	tdk12	'settdk m0134-mem-tsmc12ffc_plus-ts12n0zs1p11sadrl144s/rel3.0.0; setenv CHAR_DEBUG "-keep_raw_del_files -skip_tcl_equation_info -skip_validate_options_check -keep_run_dir -skip_hz_verification -no_spice_expansion -skip_resubmit_job "'
+alias	tdk3	'settdk m0139-mem-tsmc3ff-ts03n0g41p10assvd01ms/rel4.0.0; setenv CHAR_DEBUG "-keep_raw_del_files -skip_tcl_equation_info -skip_validate_options_check -keep_run_dir -skip_hz_verification -no_spice_expansion -skip_resubmit_job "'
+alias	tdk3e	'settdk m0144-mem-tsmc3eff-ts03nxg41p11sadul1m2s/rel5.3.0_snap_REL4211974_20230424; setenv CHAR_DEBUG "-keep_raw_del_files -skip_tcl_equation_info -skip_validate_options_check -keep_run_dir -skip_hz_verification -no_spice_expansion -skip_resubmit_job "'
+#alias	tdk04	'settdk m0135-mem-ss4lpp-sa04nlg42p11sagrl128s/rel1.4.0_snap_REL4320584_20221121; setenv CHAR_DEBUG "-keep_raw_del_files -skip_tcl_equation_info -skip_validate_options_check -keep_run_dir -skip_hz_verification -no_spice_expansion -skip_resubmit_job "'
+alias	tdk3p	'settdk m0169-mem-tsmc3p-ts03p0g02p21cpsrlhpcs/rel1.0.0; setenv CHAR_DEBUG "-keep_raw_del_files -skip_tcl_equation_info -skip_validate_options_check -keep_run_dir -skip_hz_verification -no_spice_expansion -skip_resubmit_job "'
+alias	tdk3pz	'settdk m0169-mem-tsmc3p-ts03p0g01p11sacrl256s/rel1.2.0; setenv CHAR_DEBUG "-keep_raw_del_files -skip_tcl_equation_info -skip_validate_options_check -keep_run_dir -skip_hz_verification -no_spice_expansion -skip_resubmit_job "'
+alias	tdk5e	'settdk m0121-mem-tsmc5ffp-ts05p0g42p11sarel128s/rel11.0.0_snap_REL4486443_20230322; setenv CHAR_DEBUG "-keep_raw_del_files -skip_tcl_equation_info -skip_validate_options_check -keep_run_dir -skip_hz_verification -no_spice_expansion -skip_resubmit_job "'
+alias	tdk5u	'settdk m0121-mem-tsmc5ffp-ts05p0g42p11sacul256s/rel11.0.0_snap_REL4955209_20231213; setenv CHAR_DEBUG "-keep_raw_del_files -skip_tcl_equation_info -skip_validate_options_check -keep_run_dir -skip_hz_verification -no_spice_expansion -skip_resubmit_job "'
+
+#
+#__Depot
+alias	depot12	'setenv PIPE_P4_DEPOT //pipe_ts12'
+alias	depot5	'setenv PIPE_P4_DEPOT //pipe_ts05'
+alias	depot3	'setenv PIPE_P4_DEPOT //pipe_ts03'
+alias	depot0	'setenv PIPE_P4_DEPOT //pipe'
+alias	bcompare	'/depot/Bcompare/bcompare-4.4.0/bin/bcompare &'
+
+#setenv PIPE_P4_DEPOT //pipe
+#setenv PIPE_P4_PORT p4p-us01:1900
+#setenv PIPE_P4_PORT p4p-`siteid`:1900
+#setenv PIPE_REV_MODE p4
+#
+#setenv PIPE_BYPASS_QA_LABEL_CHECK 1
+#setenv PIPE_ENFORCE_TAG 0
+#
+##----------------------------------------------
+#
+#setenv P4PORT p4p-us01:1900
+#setenv P4PORT p4p-`siteid`:1900
+#setenv P4CLIENT `whoami`_design_`siteid`
+#setenv P4EDITOR vi
+#setenv P4DIFF /depot/perforce/p4merge
+#set prompt = '%B[%n@%m]%b %/\n% '
+#
+#__TCL_job_command
+#alias	diag		'source /u/trapham/Documents/script/script_diagnostic.csh'
+alias	diag		'echo "$PIPEROOT/lib/diagnostic/bin/pdiagnostic -f -flow "'
+#alias	vch_run		'vchartools run_margins -cpj char.cpj -netlist_type timing -control_file run* > & log1 &'
+#
+#alias 	run_DA		'pipe -f tcl -v DesignAnalysis -r DesignAnalysisReport -bypass  qa_label'
+#
+alias	run_SC        'pipe -f Scaling_Chk.tcl -v ScalingCheck -r ScalingCheckReport -bypass qa_label'
+alias	run_SC_qa	'pipe -f Scaling_Chk.tcl -v ScalingCheck -r ScalingCheckReport -copy-to-reports'
+alias	diag_SC		'$PIPEROOT/lib/diagnostic/bin/pdiagnostic -f Scaling_Chk.tcl -flow ScalingCheck'
+alias	SC_report	'source ~/Documents/script/QaDiagnostic/script_ScalingChk_diagnostic.csh'
+#
+alias	run_AG		'pipe -f  AntennaGen_sqa.tcl -c AntennaGen -r AntennaGenReport -bypass qa_label'
+alias   run_AG_qa       'pipe -f  AntennaGen_sqa.tcl -c AntennaGen -r AntennaGenReport -copy-to-reports'
+alias	diag_AG		'$PIPEROOT/lib/diagnostic/bin/pdiagnostic -f AntennaGen_sqa.tcl -flow AntennaGen'
+alias	AG_report	'source ~/Documents/script/QaDiagnostic/script_AntennaGen_Fail.csh'
+#
+#
+alias	run_NCS		'pipe -f NativeCcsn.tcl -v NativeCcsn -r NativeCcsnReport -bypass qa_label'
+alias   run_NCS_qa      'pipe -f NativeCcsn.tcl -v NativeCcsn -r NativeCcsnReport -copy-to-reports'
+alias	diag_NCS	'$PIPEROOT/lib/diagnostic/bin/pdiagnostic -f NativeCcsn.tcl -flow NativeCcsn'
+#
+alias	run_CT		'pipe -f Ccst.tcl -v Ccst -r CcstReport -bypass qa_label'
+alias   run_CT_qa       'pipe -f Ccst.tcl -v Ccst -r CcstReport -copy-to-reports'
+alias	diag_CT		'$PIPEROOT/lib/diagnostic/bin/pdiagnostic -f Ccst.tcl -flow Ccst'
+alias	CT_report	'source ~/Documents/script/QaDiagnostic/script_Ccst_diagnostic.csh'
+#
+alias	run_CN		'pipe -f Ccsn.tcl -v Ccsn -r CcsnReport -bypass qa_label'
+alias   run_CN_qa       'pipe -f Ccsn.tcl -v Ccsn -r CcsnReport -copy-to-reports'
+alias	diag_CN		'$PIPEROOT/lib/diagnostic/bin/pdiagnostic -f Ccsn.tcl -flow Ccsn'
+alias	CN_report	'source ~/Documents/script/QaDiagnostic/script_Ccsn_diagnostic.csh'
+#
+alias	run_Lvf		'pipe -f Lvf.tcl -v Lvf -r LvfReport -bypass qa_label'
+alias	run_Lvf_qa	'pipe -f Lvf.tcl -v Lvf -r LvfReport -copy-to-reports'
+alias	diag_Lvf	'$PIPEROOT/lib/diagnostic/bin/pdiagnostic -f Lvf.tcl -flow Lvf'
+alias	Lvf_report	'source ~/Documents/script/QaDiagnostic/script_Lvf_diagnostic.csh'
+
+#
+alias	ulspf	'~/unl_spf.csh'
+
+##___DISK___
+alias   us312   'cd /slowfs/us01dwt2p312/trapham'
+alias	5532248	'cd /remote/us01sgnfs00787/tsmc5ff/tsmc5ff-5532248/work/trapham'
+alias	5668290	'cd /remote/us01sgnfs00548/tsmc12ffc/tsmc12ffc-5668290/work/trapham'
+alias	5668291	'cd /remote/us01sgnfs00548/tsmc12ffc/tsmc12ffc-5668291/ts12n0zs2p11sadrl72ksa/work/trapham'
+alias	5668287	'cd /remote/us01sgnfs00409/tsmc12ffc/tsmc12ffc-5668287/work/trapham'
+alias	5668288	'cd /remote/us01sgnfs00693/tsmc12ffc/tsmc12ffc-5668288/work/trapham'
+alias	5962822	'cd'
+alias	5962824	'cd'
+alias	5962820	'cd'
+alias	5962818	'cd /remote/us01sgnfs00548/tsmc12ffc/tsmc12ffc-5962818/work/trapham'
+alias	55818	'cd /remote/us01sgnfs00548/tsmc12ffc/tsmc12ffc-5962818/work/trapham/gf55npky/trapham; settdk tdk55.58'
+alias	5974872	'cd /remote/us01sgnfs00807/ss4/ss4-5974872/work/trapham; settdk m0135-mem-ss4lpp-sa04nlg41p11sadsl02ms/rel1.7.0'
+alias	5974876	'cd /remote/us01sgnfs00693/ss4/ss4-5974876/work/trapham; settdk m0135-mem-ss4lpp-sa04nlg42p11sasul256s/rel1.7.0'
+alias	5974878	'cd /remote/us01sgnfs00409/ss4/ss4-5974878/work/trapham; settdk m0135-mem-ss4lpp-sa04nlg42p11sashl128s/rel1.7.0'
+alias	5974880	'cd /remote/us01sgnfs00409/ss4/ss4-5974880/work/trapham; settdk m0135-mem-ss4lpp-sa04nlg41p11sassl02ms/rel1.7.0'
+alias	5974886	'cd /remote/us01sgnfs00680/ss4/ss4-5974886/work/trapham; settdk m0135-mem-ss4lpp-sa04nlg42p11sagrl128s/rel1.7.0'
+alias	modelgf	'cd /remote/us01sgnfs00897/fab/f123-GF/55nm/HV/BCD/models/ver0.5_2.0/snps/55bcd/models; settdk tdk55.58'
+alias	6398344	'cd /remote/in01sgnfs00179'
